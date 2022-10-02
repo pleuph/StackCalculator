@@ -12,9 +12,9 @@ namespace StackCalculatorLogic.Tests
             var a = 5.5;
             var b = 8.3;
             var expected = b + a;
+            var sut = new StatefulStackCalculator();
 
             //Act
-            var sut = new StatefulStackCalculator();
             sut.Enter(a);
             sut.Enter(b);
             var actual = sut.Add();
@@ -30,9 +30,9 @@ namespace StackCalculatorLogic.Tests
             var a = 5.5;
             var b = 8.3;
             var expected = b - a;
+            var sut = new StatefulStackCalculator();
 
             //Act
-            var sut = new StatefulStackCalculator();
             sut.Enter(a);
             sut.Enter(b);
             var actual = sut.Subtract();
@@ -48,9 +48,9 @@ namespace StackCalculatorLogic.Tests
             var a = 5.5;
             var b = 8.3;
             var expected = b * a;
+            var sut = new StatefulStackCalculator();
 
             //Act
-            var sut = new StatefulStackCalculator();
             sut.Enter(a);
             sut.Enter(b);
             var actual = sut.Multiply();
@@ -66,9 +66,9 @@ namespace StackCalculatorLogic.Tests
             var a = 5.5;
             var b = 8.3;
             var expected = b / a;
+            var sut = new StatefulStackCalculator();
 
             //Act
-            var sut = new StatefulStackCalculator();
             sut.Enter(a);
             sut.Enter(b);
             var actual = sut.Divide();
@@ -84,9 +84,9 @@ namespace StackCalculatorLogic.Tests
             var a = 0;
             var b = 8.3;
             var expected = double.PositiveInfinity;
+            var sut = new StatefulStackCalculator();
 
             //Act
-            var sut = new StatefulStackCalculator();
             sut.Enter(a);
             sut.Enter(b);
             var actual = sut.Divide();
@@ -101,9 +101,9 @@ namespace StackCalculatorLogic.Tests
             //Arrange
             var a = 5.5;
             var expected = 0;
+            var sut = new StatefulStackCalculator();
 
             //Act
-            var sut = new StatefulStackCalculator();
             sut.Enter(a);
             var actual = sut.Divide();
 
@@ -121,9 +121,9 @@ namespace StackCalculatorLogic.Tests
             var d = 9.2;
             var e = 4.7;
             var expected = e / ((d * c) - (b + a));
-
-            //Act
             var sut = new StatefulStackCalculator();
+
+            //Act            
             sut.Enter(a);
             sut.Enter(b);
             sut.Enter(sut.Add());
@@ -136,6 +136,26 @@ namespace StackCalculatorLogic.Tests
 
             //Assert
             Assert.Equal(expected, actual);
+        }
+
+        [Fact]
+        public void TenthOperationReturnsRandomNumber()
+        {
+            //Arrange
+            var sut = new StatefulStackCalculator();
+
+            //Act
+            sut.Enter(0);
+            sut.Enter(0);
+            for(int i = 0; i < 9; i++)
+            {
+                sut.Enter(sut.Add());
+                sut.Enter(0);
+            }
+            var actual = sut.Add();
+
+            //Assert
+            Assert.NotEqual(0, actual);
         }
     }
 }
