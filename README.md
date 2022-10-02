@@ -45,9 +45,10 @@ Make a simple stack calculator, using reverse polish notation, in Unity. Must be
 - Create a solution with logic and test libraries
 - Write tests for each of the main operations and one that uses all four
   - As input contains both number and operators in a string, it is simplest to only support integers in the input
-- Implement the four operations¨
+- Implement the four operations
   - Googling for existing solutions show that many exist. However, it also seems pretty simple to make from scratch
   - As we know we will need to handle state, the "Calculate" method cannot be static
   - Output of divisions can be non-integer values, which will need to be handled in some way
+  - Input should be scrubbed for any non-allowed characters
 - Write test for "10th result is random" rule
 - Implement "10th result is random" rule

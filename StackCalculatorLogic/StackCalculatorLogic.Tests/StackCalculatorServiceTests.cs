@@ -78,5 +78,20 @@ namespace StackCalculatorLogic.Tests
             //Assert
             Assert.Equal(expected, actual);
         }
+
+        [Fact]
+        public void ScrubInput_RemovesDisallowedCharacters()
+        {
+            //Arrange
+            //TODO: Figure out a better way to get complete set of disallowed characters.
+            var input = "1234567890+-*/!#¤%&()=?`@£$€{[]}|¨^~',;.:_<>\\ ";
+            var expected = "1234567890+-*/";
+
+            //Act
+            var actual = StackCalculatorService.ScrubInput(input);
+
+            //Assert
+            Assert.Equal(expected, actual);
+        }
     }
 }
