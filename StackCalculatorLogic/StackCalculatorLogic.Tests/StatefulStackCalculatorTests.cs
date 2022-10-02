@@ -1,12 +1,11 @@
-﻿using System;
-using Xunit;
+﻿using Xunit;
 
 namespace StackCalculatorLogic.Tests
 {
     public class StatefulStackCalculatorTests
     {
         [Fact]
-        public void CanAdd()
+        public async void CanAdd()
         {
             //Arrange
             var a = 5.5;
@@ -17,14 +16,14 @@ namespace StackCalculatorLogic.Tests
             //Act
             sut.Enter(a);
             sut.Enter(b);
-            var actual = sut.Add();
+            var actual = await sut.Add();
 
             //Assert
             Assert.Equal(expected, actual);
         }
 
         [Fact]
-        public void CanSubtract()
+        public async void CanSubtract()
         {
             //Arrange
             var a = 5.5;
@@ -35,14 +34,14 @@ namespace StackCalculatorLogic.Tests
             //Act
             sut.Enter(a);
             sut.Enter(b);
-            var actual = sut.Subtract();
+            var actual = await sut.Subtract();
 
             //Assert
             Assert.Equal(expected, actual);
         }
 
         [Fact]
-        public void CanMultiply()
+        public async void CanMultiply()
         {
             //Arrange
             var a = 5.5;
@@ -53,14 +52,14 @@ namespace StackCalculatorLogic.Tests
             //Act
             sut.Enter(a);
             sut.Enter(b);
-            var actual = sut.Multiply();
+            var actual = await sut.Multiply();
 
             //Assert
             Assert.Equal(expected, actual);
         }
 
         [Fact]
-        public void CanDivide()
+        public async void CanDivide()
         {
             //Arrange
             var a = 5.5;
@@ -71,14 +70,14 @@ namespace StackCalculatorLogic.Tests
             //Act
             sut.Enter(a);
             sut.Enter(b);
-            var actual = sut.Divide();
+            var actual = await sut.Divide();
 
             //Assert
             Assert.Equal(expected, actual);
         }
 
         [Fact]
-        public void DivideByZero_ReturnsInfinity()
+        public async void DivideByZero_ReturnsInfinity()
         {
             //Arrange
             var a = 0;
@@ -89,14 +88,14 @@ namespace StackCalculatorLogic.Tests
             //Act
             sut.Enter(a);
             sut.Enter(b);
-            var actual = sut.Divide();
+            var actual = await sut.Divide();
 
             //Assert
             Assert.Equal(expected, actual);
         }
 
         [Fact]
-        public void WhenStackCountLessThanTwo_ReturnZero()
+        public async void WhenStackCountLessThanTwo_ReturnZero()
         {
             //Arrange
             var a = 5.5;
@@ -105,14 +104,14 @@ namespace StackCalculatorLogic.Tests
 
             //Act
             sut.Enter(a);
-            var actual = sut.Divide();
+            var actual = await sut.Divide();
 
             //Assert
             Assert.Equal(expected, actual);
         }
 
         [Fact]
-        public void SupportsMultipleOperations()
+        public async void SupportsMultipleOperations()
         {
             //Arrange
             var a = 5.5;
@@ -126,20 +125,20 @@ namespace StackCalculatorLogic.Tests
             //Act            
             sut.Enter(a);
             sut.Enter(b);
-            sut.Enter(sut.Add());
+            sut.Enter(await sut.Add());
             sut.Enter(c);
             sut.Enter(d);
-            sut.Enter(sut.Multiply());
-            sut.Enter(sut.Subtract());
+            sut.Enter(await sut.Multiply());
+            sut.Enter(await sut.Subtract());
             sut.Enter(e);
-            var actual = sut.Divide();
+            var actual = await sut.Divide();
 
             //Assert
             Assert.Equal(expected, actual);
         }
 
         [Fact]
-        public void TenthOperationReturnsRandomNumber()
+        public async void TenthOperationReturnsRandomNumber()
         {
             //Arrange
             var sut = new StatefulStackCalculator();
@@ -149,10 +148,23 @@ namespace StackCalculatorLogic.Tests
             sut.Enter(0);
             for(int i = 0; i < 9; i++)
             {
-                sut.Enter(sut.Add());
+                sut.Enter(await sut.Add());
                 sut.Enter(0);
             }
-            var actual = sut.Add();
+            var actual = await sut.Add();
+
+            //Assert
+            Assert.NotEqual(0, actual);
+        }
+
+        [Fact]
+        public async void GetRandomReturnsResult()
+        {
+            //Arrange
+            var sut = new StatefulStackCalculator();
+
+            //Act
+            var actual = await sut.GetRandom();
 
             //Assert
             Assert.NotEqual(0, actual);
