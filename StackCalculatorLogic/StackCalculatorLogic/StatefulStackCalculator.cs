@@ -8,15 +8,15 @@
 
         public void Enter(double value) => stack.Push(value);
 
-        public double Add(double value) => OperationOrRandom(value, () => stack.Pop() + value);
+        public double Add() => OperationOrRandom(() => stack.Pop() + stack.Pop());
 
-        public double Subtract(double value) => OperationOrRandom(value, () => stack.Pop() - value);
+        public double Subtract() => OperationOrRandom(() => stack.Pop() - stack.Pop());
 
-        public double Multiply(double value) => OperationOrRandom(value, () => stack.Pop() * value);
+        public double Multiply() => OperationOrRandom(() => stack.Pop() * stack.Pop());
 
-        public double Divide(double value) => OperationOrRandom(value, () => stack.Pop() / value);
+        public double Divide() => OperationOrRandom(() => stack.Pop() / stack.Pop());
 
-        double OperationOrRandom(double value, Func<double> operation)
+        double OperationOrRandom(Func<double> operation)
         {
             operationCount++;
 
@@ -28,8 +28,7 @@
                 return 1 + random.NextDouble() * random.Next(1, int.MaxValue);
             }
 
-            //If there's nothing on the stack, return the value. Otherwise, perform operation.
-            return stack.Count == 0 ? value : operation();
+            return stack.Count < 2 ? 0 : operation();
         }
     }
 }
