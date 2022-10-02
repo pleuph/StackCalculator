@@ -59,3 +59,4 @@ Make a simple stack calculator, using reverse polish notation, in Unity. Must be
 ## Implement new solution
 - Create a stateful calculator using a stack for storing values
 - Write meaningful tests for various scenarios
+- Create mockup of UI in Unity
