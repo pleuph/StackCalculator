@@ -34,3 +34,16 @@ Make a simple stack calculator, using reverse polish notation, in Unity. Must be
   - VS Tools for Unity does not include any project templates or UI tools, is mainly for code editing and debugging
   - VS could be useful for writing the logic code and unit tests
   - Downloaded 2D Mobile template for UE and created project
+    - Created initial UI with label, input box, button and output text field
+    - Threw error at runtime - dev unable to figure out why
+    - Not immediately obvious to dev how to connect UI elements with code
+    - Learning resources appear to be very time consuming for getting started
+  
+**Conclusion:** Shift focus to implementing logic and revisit app/UI later.
+
+## Implement logic
+- Create a solution with logic and test libraries
+- Write tests for each of the main operations and one that uses all four
+- Implement the four operations
+- Write test for "10th result is random" rule
+- Implement "10th result is random" rule
