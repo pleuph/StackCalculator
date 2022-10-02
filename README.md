@@ -50,5 +50,12 @@ Make a simple stack calculator, using reverse polish notation, in Unity. Must be
   - As we know we will need to handle state, the "Calculate" method cannot be static
   - Output of divisions can be non-integer values, which will need to be handled in some way
   - Input should be scrubbed for any non-allowed characters
-- Write test for "10th result is random" rule
-- Implement "10th result is random" rule
+  - Invalid input should be handled with error message
+- (Skipped) Write test for "10th result is random" rule
+- (Skipped) Implement "10th result is random" rule
+
+**Note:** Further research into the purpose of RPN and questions raised during development led to a new understanding of what the most meaningful implementation would be. Shift focus to new implementation.
+
+## Implement new solution
+- Create a stateful calculator using a stack for storing values
+- Write meaningful tests for various scenarios
