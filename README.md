@@ -22,4 +22,12 @@ Make a simple stack calculator, using reverse polish notation, in Unity. Must be
 
 ## Immediate tasks
 - Get Unity and tools
+  - Downloaded Unity from https://unity.com/download
+  - Created a Unity account
+  - Installed Unity Editor via Unity Hub
+  - Installed tools for Unity with Visual Studio Installer
 - Research stack calculator and reverse polish notation
+  - First hit on google explains it well: https://stevenpcurtis.medium.com/evaluate-reverse-polish-notation-using-a-stack-7c618c9f80c0
+
+## Next steps
+- Explore creating a 2D app in VS and UE
