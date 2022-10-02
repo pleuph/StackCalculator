@@ -53,7 +53,7 @@ namespace StackCalculatorLogic.Tests
         public void Calculate_CanDivide()
         {
             //Arrange
-            var input = "28-";
+            var input = "28/";
             var expected = 4;
 
             //Act
@@ -68,8 +68,8 @@ namespace StackCalculatorLogic.Tests
         public void Calculate_SupportsAllOperationsInOneInput()
         {
             //Arrange
-            var input = "13-23+*5/";
-            var expected = 2;
+            var input = "13-2+8/3*"; 
+            var expected = 6;
 
             //Act
             var sut = new StackCalculatorService();

@@ -1,4 +1,7 @@
-﻿using System.Text;
+﻿using System.Runtime.CompilerServices;
+using System.Text;
+
+[assembly: InternalsVisibleTo("StackCalculatorLogic.Tests")]
 
 namespace StackCalculatorLogic
 {
@@ -8,10 +11,31 @@ namespace StackCalculatorLogic
 
         public int Calculate(string input)
         {
-            throw new NotImplementedException();
+            var scrubbedInput = ScrubInput(input);
+            var stack = new Stack<int>();
+            foreach(var c in scrubbedInput)
+            {
+                if (int.TryParse(c.ToString(), out int number))
+                    stack.Push(number);
+                else
+                {
+                    var a = stack.Pop();
+                    var b = stack.Pop();
+                    var result = c switch
+                    {
+                        '+' => a + b,
+                        '-' => a - b,
+                        '*' => a * b,
+                        '/' => a / b
+                    };
+                    stack.Push(result);
+                }
+            }
+
+            return stack.Pop();
         }
 
-        public static string ScrubInput(string input)
+        internal static string ScrubInput(string input)
         {
             var sb = new StringBuilder();
             foreach(var c in input)
