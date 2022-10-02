@@ -9,9 +9,21 @@ namespace StackCalculatorLogic
     {
         const string allowedCharacters = "0123456789+-*/";
 
-        public int Calculate(string input)
+        public string TryCalculate(string input)
         {
             var scrubbedInput = ScrubInput(input);
+            try
+            {
+                return Calculate(input).ToString();
+            }
+            catch (Exception)
+            {
+                return "Invalid input";
+            }
+        }
+
+        internal static int Calculate(string scrubbedInput)
+        {
             var stack = new Stack<int>();
             foreach(var c in scrubbedInput)
             {

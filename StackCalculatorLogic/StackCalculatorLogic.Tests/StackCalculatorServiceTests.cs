@@ -12,8 +12,7 @@ namespace StackCalculatorLogic.Tests
             var expected = 3;
 
             //Act
-            var sut = new StackCalculatorService();
-            var actual = sut.Calculate(input);
+            var actual = StackCalculatorService.Calculate(input);
 
             //Assert
             Assert.Equal(expected, actual);
@@ -27,8 +26,7 @@ namespace StackCalculatorLogic.Tests
             var expected = 2;
 
             //Act
-            var sut = new StackCalculatorService();
-            var actual = sut.Calculate(input);
+            var actual = StackCalculatorService.Calculate(input);
 
             //Assert
             Assert.Equal(expected, actual);
@@ -42,8 +40,7 @@ namespace StackCalculatorLogic.Tests
             var expected = 6;
 
             //Act
-            var sut = new StackCalculatorService();
-            var actual = sut.Calculate(input);
+            var actual = StackCalculatorService.Calculate(input);
 
             //Assert
             Assert.Equal(expected, actual);
@@ -57,8 +54,7 @@ namespace StackCalculatorLogic.Tests
             var expected = 4;
 
             //Act
-            var sut = new StackCalculatorService();
-            var actual = sut.Calculate(input);
+            var actual = StackCalculatorService.Calculate(input);
 
             //Assert
             Assert.Equal(expected, actual);
@@ -72,8 +68,7 @@ namespace StackCalculatorLogic.Tests
             var expected = 6;
 
             //Act
-            var sut = new StackCalculatorService();
-            var actual = sut.Calculate(input);
+            var actual = StackCalculatorService.Calculate(input);
 
             //Assert
             Assert.Equal(expected, actual);
@@ -89,6 +84,21 @@ namespace StackCalculatorLogic.Tests
 
             //Act
             var actual = StackCalculatorService.ScrubInput(input);
+
+            //Assert
+            Assert.Equal(expected, actual);
+        }
+
+        [Fact]
+        public void TryCalculate_WhenInputIsInvalid_ReturnsError()
+        {
+            //Arrange
+            var input = "1+";
+            var expected = "Invalid input";
+
+            //Act
+            var sut = new StackCalculatorService();
+            var actual = sut.TryCalculate(input);
 
             //Assert
             Assert.Equal(expected, actual);
