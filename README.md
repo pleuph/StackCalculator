@@ -95,6 +95,10 @@ Features:
 
 If this approach is close to the desired solution in terms of input and output, it could be improved upon in several ways:
 - Initial stack size can be configured to best support the expected number of operations
+- Depending on the required UI, extra methods for input scrubbing/validation could be added
+- Depending on requirements and standards for stack calculators and RPN, the workflow could be improved:
+  - Allow operations to accept numbers, thereby skipping an Enter (and stack push)
+  - Push result of operation back onto the stack to allow further operations, thereby possibly skipping an Enter
 
 ### Unity projects
 I Was unable to create working prototypes in Unity. I used the "2D mobile app" template and was able to add UI elements to the screen, but was not able to go beyond that. I ended up creating UI mockups for both solutions, shown in screenshots.
