@@ -62,9 +62,19 @@ Make a simple stack calculator, using reverse polish notation, in Unity. Must be
 - Write meaningful tests for various scenarios
 - Create mockup of UI in Unity
 
-##Conclusions
-- Created two different solutions
-- Was unable to create working prototypes in Unity
-  - Did not discover how to connect code with UI elements
-  - Encountered errors after adding UI elements
-  - Was unable to push Unity code to GitHub because some files were too big
+## Conclusions
+
+### Solution 1
+
+### Solution 2
+
+### Unity projects
+I Was unable to create working prototypes in Unity. I used the "2D mobile app" template and was able to add UI elements to the screen, but was not able to go beyond that. I ended up creating UI mockups for both solutions, shown in screenshots.
+
+Being completely new to Unity, I encountered the following challenges:
+- Encountered errors after adding UI elements
+- Was unable to push Unity code to GitHub because some files were too big
+- How to connect UI elements with code was not readily apparent to me
+- Project structure and number files (7k+) is unfamiliar and hard to grasp
+- Although good learning resources seem to exist, I was not able to find a usable quickstart guide for this type of task
+- Because of the above, I did not research how to deploy apps to devices
