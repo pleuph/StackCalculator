@@ -86,6 +86,10 @@ The StatefulStackCalculator has the ability to take in numbers as doubles and st
 
 Features:
 - Supports a practically limitless number of operations
+- Numbers (as doubles) can be pushed to the internal stack via the Enter method
+- Any of the four operations can be performed once there are at least 2 numbers on the stack
+- Any operation pops the last two numbers from the stack, the result is not pushed to the stack
+- If less than 2 numbers are on the stack when an operation is attempted, the stack is not changed and 0 is returned
 
 If this approach is close to the desired solution in terms of input and output, it could be improved upon in several ways:
 - Initial stack size can be configured to best support the expected number of operations
