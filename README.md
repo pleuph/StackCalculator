@@ -107,6 +107,6 @@ Being completely new to Unity, I encountered the following challenges:
 - Encountered errors after adding UI elements
 - Was unable to push Unity code to GitHub because some files were too big
 - How to connect UI elements with code was not readily apparent to me
-- Project structure and number files (7k+) is unfamiliar and hard to grasp
+- Project structure and number of files (7k+) is unfamiliar and hard to grasp
 - Although good learning resources seem to exist, I was not able to find a usable quickstart guide for this type of task
 - Because of the above, I did not research how to deploy apps to devices
