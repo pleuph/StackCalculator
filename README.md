@@ -82,7 +82,7 @@ If this approach is close to the desired solution in terms of input and output, 
   - I have not come across what, if any, the standard is for this in RPN
 
 ### Solution 2
-
+The StatefulStackCalculator has the ability to take in numbers as doubles and store them on a stack. Four different operations can be applied, popping the top 2 numbers from the stack and returning the result.
 
 
 ### Unity projects
