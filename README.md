@@ -84,6 +84,11 @@ If this approach is close to the desired solution in terms of input and output, 
 ### Solution 2
 The StatefulStackCalculator has the ability to take in numbers as doubles and store them on a stack. Four different operations can be applied, popping the top 2 numbers from the stack and returning the result.
 
+Features:
+- Supports a practically limitless number of operations
+
+If this approach is close to the desired solution in terms of input and output, it could be improved upon in several ways:
+- Initial stack size can be configured to best support the expected number of operations
 
 ### Unity projects
 I Was unable to create working prototypes in Unity. I used the "2D mobile app" template and was able to add UI elements to the screen, but was not able to go beyond that. I ended up creating UI mockups for both solutions, shown in screenshots.
