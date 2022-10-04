@@ -63,10 +63,27 @@ Make a simple stack calculator, using reverse polish notation, in Unity. Must be
 - Create mockup of UI in Unity
 
 ## Conclusions
+I am unclear on both the technical requirements and the usage scenario for the output of the task. Not having time to further refine the task before working on it, I ended up focusing on creating two distinct solutions for the implementation of the core logic. Both have a fairly high degree of code coverage in unit tests, and how they work can be demonstrated through those.
 
 ### Solution 1
+The StackCalculatorService has the ability to take an RPN expression as a string and return the calculated result (or an error) as a string. Features:
+- Is limited to single-digit integers in the input expression
+- Performs calculations using integers, meaning any final or intermediate results are rounded to the nearest integer
+- Can potentially handle very long expression - however, the capaity of the Stack may need configuration
+- Has input scrubbing that automatically removes anything that is not an int or an allowed operator
+- Has exception handling - however, all exceptions are considered to be caused by invalid input
+- Is stateless and therefore does not fulfill the "10th result is random" requirement
+
+If this approach is close to the desired solution in terms of input and output, it could be improved upon in several ways:
+- Can be made stateful and have the "10th result is random" rule added
+- Can be upgraded to perform calculations using doubles
+- Can be upgraded to accept expressions containing multidigit integers and floating point numbers
+  - Would require a separator character, fx. spaces: "12,5 5,8 -"
+  - I have not come across what, if any, the standard is for this in RPN
 
 ### Solution 2
+
+
 
 ### Unity projects
 I Was unable to create working prototypes in Unity. I used the "2D mobile app" template and was able to add UI elements to the screen, but was not able to go beyond that. I ended up creating UI mockups for both solutions, shown in screenshots.
