@@ -90,6 +90,8 @@ Features:
 - Any of the four operations can be performed once there are at least 2 numbers on the stack
 - Any operation pops the last two numbers from the stack, the result is not pushed to the stack
 - If less than 2 numbers are on the stack when an operation is attempted, the stack is not changed and 0 is returned
+- Every 10th operation returns a non-zero random number, which is a combination of a dotnet random multiplied with an in from: randomnumberapi.com
+- Any errors in external calls fail silently and a fallback dotnet random int is used in stead
 
 If this approach is close to the desired solution in terms of input and output, it could be improved upon in several ways:
 - Initial stack size can be configured to best support the expected number of operations
