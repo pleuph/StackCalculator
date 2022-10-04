@@ -21,10 +21,21 @@ namespace StackCalculatorLogic
 
         internal async Task<int> GetRandom()
         {
-            var request = $"https://www.randomnumberapi.com/api/v1.0/random?min=1&max={int.MaxValue}";
-            var response = await httpClient.GetAsync(request);
-            var result = await response.Content.ReadFromJsonAsync<int[]>();
-            return result.First();
+            try
+            {
+                var request = $"https://www.randomnumberapi.com/api/v1.0/random?min=1&max={int.MaxValue}";
+                var response = await httpClient.GetAsync(request);
+                if (response.IsSuccessStatusCode)
+                {
+                    var result = await response.Content.ReadFromJsonAsync<int[]>();
+                    return result.First();
+                }
+            }
+            catch (Exception) 
+            {
+                //Fail silently.
+            }
+            return random.Next(1, int.MaxValue);
         }
 
         async Task<double> OperationOrRandom(Func<double> operation)
@@ -36,7 +47,7 @@ namespace StackCalculatorLogic
             {
                 operationCount = 0;
                 //Return a non-zero random so we can use 0 as control for testing.
-                return 1 + random.NextDouble() * await GetRandom();
+                return (1 + random.NextDouble()) * await GetRandom();
             }
 
             return stack.Count < 2 ? 0 : operation();
