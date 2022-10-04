@@ -69,13 +69,13 @@ I am unclear on both the technical requirements and the usage scenario for the o
 The StackCalculatorService has the ability to take an RPN expression as a string and return the calculated result (or an error) as a string. Features:
 - Is limited to single-digit integers in the input expression
 - Performs calculations using integers, meaning any final or intermediate results are rounded to the nearest integer
-- Can potentially handle very long expression - however, the capaity of the Stack may need configuration
+- Can potentially handle very long expressions - however, the capaity of the Stack may need configuration
 - Has input scrubbing that automatically removes anything that is not an int or an allowed operator
 - Has exception handling - however, all exceptions are considered to be caused by invalid input
-- Is stateless and therefore does not fulfill the "10th result is random" requirement
+- Is stateless and does not fulfill the "10th result is random" requirement
 
 If this approach is close to the desired solution in terms of input and output, it could be improved upon in several ways:
-- Can be made stateful and have the "10th result is random" rule added
+- Can be made stateful and have the "10th result is random" logic added
 - Can be upgraded to perform calculations using doubles
 - Can be upgraded to accept expressions containing multidigit integers and floating point numbers
   - Would require a separator character, fx. spaces: "12,5 5,8 -"
@@ -95,7 +95,7 @@ Features:
 
 If this approach is close to the desired solution in terms of input and output, it could be improved upon in several ways:
 - Initial stack size can be configured to best support the expected number of operations
-- Depending on the required UI, extra methods for input scrubbing/validation could be added
+- Depending on the required UI, add input scrubbing/validation, handling of single-digit button input etc. 
 - Depending on requirements and standards for stack calculators and RPN, the workflow could be improved:
   - Allow operations to accept numbers, thereby skipping an Enter (and stack push)
   - Push result of operation back onto the stack to allow further operations, thereby possibly skipping an Enter
