@@ -39,7 +39,7 @@ Make a simple stack calculator, using reverse polish notation, in Unity. Must be
     - Not immediately obvious to dev how to connect UI elements with code
     - Learning resources appear to be very time consuming for getting started
   
-**Conclusion:** Shift focus to implementing logic and revisit app/UI later.
+**Notes:** Shift focus to implementing logic and revisit app/UI later.
 
 ## Implement logic
 - Create a solution with logic and test libraries
@@ -54,9 +54,17 @@ Make a simple stack calculator, using reverse polish notation, in Unity. Must be
 - (Skipped) Write test for "10th result is random" rule
 - (Skipped) Implement "10th result is random" rule
 
-**Note:** Further research into the purpose of RPN and questions raised during development led to a new understanding of what the most meaningful implementation would be. Shift focus to new implementation.
+**Notes:** Further research into the purpose of RPN and questions raised during development raised doubts about what the most meaningful implementation would be. Shift focus to new implementation.
 
 ## Implement new solution
 - Create a stateful calculator using a stack for storing values
+- Add call to external number generator for "10th result is random" rule.
 - Write meaningful tests for various scenarios
 - Create mockup of UI in Unity
+
+##Conclusions
+- Created two different solutions
+- Was unable to create working prototypes in Unity
+  - Did not discover how to connect code with UI elements
+  - Encountered errors after adding UI elements
+  - Was unable to push Unity code to GitHub because some files were too big
